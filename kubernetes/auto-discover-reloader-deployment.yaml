@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-discover-reloader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-discover-reloader
+  template:
+    metadata:
+      labels:
+        app: auto-discover-reloader
+    spec:
+      serviceAccountName: auto-reloader-sa
+      containers:
+      - name: reloader
+        image: <your-registry>/auto-discover-reloader:latest
+        env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: CHECK_INTERVAL
+            value: "10"
+        securityContext:
+          runAsUser: 0

@@ -15,7 +15,7 @@ spec:
       serviceAccountName: auto-reloader-sa
       containers:
       - name: reloader
-        image: <your-registry>/auto-discover-reloader:latest
+        image: marcelodevops/auto-discover-reloader:latest
         env:
           - name: NAMESPACE
             valueFrom:

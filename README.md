@@ -1,4 +1,4 @@
-## deploymentreloader
+## deploymentreloader. archived, continuing the development as a kubectl plugin at https://github.com/marcelodevops/kubectl-reloader
 ### tool to update a kubernetes deployment everytime a mounted configMap or secret gets update
 #### Features
 
